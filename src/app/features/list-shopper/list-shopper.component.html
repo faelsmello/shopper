@@ -1,0 +1,36 @@
+<h1>
+  <span class="material-symbols-outlined">
+    shopping_basket
+  </span>
+  Listas de compras
+</h1>
+<section>
+  <ul>
+    <ng-template #listItems [ngTemplateOutlet]="listItems" *ngFor="let item of listItmes; let ind = index;">
+      <li>
+        <!-- <h2>{{ item.name }}</h2> -->
+        <input type="checkbox" [id]="item.id" [name]="item.id">
+        <label [for]="item.id">{{ item.name }}</label>
+
+        <div>
+          <button class="actions remove" (click)="actions(ind, 'remove')"
+            [disabled]="!item.number">
+            <span class="material-symbols-outlined">
+              remove
+            </span>
+          </button>
+          <input type="number" readonly [value]="item.number">
+          <button class="actions add" (click)="actions(ind, 'add')">
+            <span class="material-symbols-outlined">
+              add
+            </span>
+          </button>
+        </div>
+      </li>
+    </ng-template>
+  </ul>
+  <div class="footer">
+    <button (click)="goToBack()">voltar</button>
+    <button class="new" (click)="saveList()">salvar</button>
+  </div>
+</section>

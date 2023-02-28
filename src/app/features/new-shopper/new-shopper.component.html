@@ -1,0 +1,15 @@
+<h1>
+  <span class="material-symbols-outlined">
+    add_shopping_cart
+  </span>
+  Nova lista
+</h1>
+<section>
+  <form [formGroup]="formList" (ngSubmit)="submit()">
+    <textarea formControlName="list" placeholder="Insira a lista">
+
+    </textarea>
+    <button class="new" [disabled]="!formList.valid">Criar lista</button>
+  </form>
+</section>
+
